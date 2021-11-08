@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qj5kra%bo^1xat-6c!4-55^r0#gu+p%#(jnyx8rpt71qia&^f@'
+SECRET_KEY = 'qj5kra%bo^1xat-6c!4-55^r0#gu+p%#(jnyx8rpt71nia&^f@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'demo',
-    'storages',
+    'storages', # new
 ]
 
 MIDDLEWARE = [
@@ -119,9 +119,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# ======================== S3 bucket setup start================
 # STATIC_ROOT = ''
 # STATIC_URL = '/static/'
 # STATICFILES_DIRS = (os.path.join('static'), )
+
 
 AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID_AFTER_CREATE_IAM_USER'
 AWS_SECRET_ACCESS_KEY = 'AWS_SECRET_ACCESS_KEY_AFTER_CREATE_IAM_USER'
@@ -138,5 +140,8 @@ STATICFILES_DIRS = [
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'core.storages.MediaStore'
+
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# =========== S3 bucket setup end================
