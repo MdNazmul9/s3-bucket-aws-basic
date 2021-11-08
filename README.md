@@ -58,6 +58,15 @@ add this JSON code
 
 
 # step-7:
+Install those package: boto3==1.19.12 and django-storages==1.12.3
+
+```
+pip install boto3==1.19.12
+
+```
+```
+pip install django-storages==1.12.3
+```
 # step-9:
 
 
