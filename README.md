@@ -106,8 +106,32 @@ DEFAULT_FILE_STORAGE = 'core.storages.MediaStore'
 
 ```
 # step-11:
+create ```storages.py``` as project level where setings.py exists and add this code:
+```
+from storages.backends.s3boto3 import S3Boto3Storage
 
+
+class MediaStore(S3Boto3Storage):
+    location = 'media'
+    file_overwrite = False
+
+```
 # step-12:
+your Bucket looks like:
+
+```
+MyBucketName
+    |
+    |-media
+    |-static
+
+```
+[Note] If you want to use existing media and static files upload it in your bucket 
 # step-13:
+Now run your project.
+
+If you fetch any issue contact me.
+
+Have a good day.
 
 
